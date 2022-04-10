@@ -2,6 +2,9 @@
 pub struct Ascii(
     Vec<u8>
     );
+impl Ascii {
+}
+pub struct NotAsciiError(pub Vec<u8>);
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
