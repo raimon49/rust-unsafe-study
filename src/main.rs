@@ -13,6 +13,13 @@ impl Ascii {
 }
 #[derive(Debug, Eq, PartialEq)]
 pub struct NotAsciiError(pub Vec<u8>);
+impl From<Ascii> for String {
+    fn from(ascii: Ascii) -> String {
+        unsafe {
+            String::from_utf8_unchecked(ascii.0)
+        }
+    }
+}
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
