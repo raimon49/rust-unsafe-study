@@ -11,6 +11,7 @@ impl Ascii {
         Ok(Ascii(bytes))
     }
 }
+#[derive(Debug, Eq, PartialEq)]
 pub struct NotAsciiError(pub Vec<u8>);
 fn main() {
     let mut a: usize = 0;
