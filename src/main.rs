@@ -26,4 +26,10 @@ fn main() {
     unsafe {
         *ptr.offset(3) = 0x7ffff72f484c;
     }
+
+    let bytes: Vec<u8> = b"ASCII and ye shall receive".to_vec();
+    let ascii: Ascii = Ascii::from_bytes(bytes)
+        .unwrap();
+    let string = String::from(ascii);
+    assert_eq!(string, "ASCII and ye shall receive");
 }
