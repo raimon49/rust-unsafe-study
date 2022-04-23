@@ -1,9 +1,11 @@
 #[derive(Debug, Eq, PartialEq)]
 pub struct Ascii(
-    Vec<u8>
+    Vec<u8> // ASCIIテキストだけを保持する 0 - 0x7f までのバイト列
     );
 
 impl Ascii {
+    // 引数 bytes 内のASCIIテキストから型 Ascii を作る
+    // ASCIIでない文字列が入っていたらNotAsciiErrorを返す
     pub fn from_bytes(bytes: Vec<u8>) -> Result<Ascii, NotAsciiError> {
         if bytes.iter().any(|&byte| !bytes.is_ascii()) {
             return Err(NotAsciiError(bytes));
@@ -15,6 +17,7 @@ impl Ascii {
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct NotAsciiError(pub Vec<u8>);
+
 impl From<Ascii> for String {
     fn from(ascii: Ascii) -> String {
         unsafe {
