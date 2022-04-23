@@ -2,6 +2,7 @@
 pub struct Ascii(
     Vec<u8>
     );
+
 impl Ascii {
     pub fn from_bytes(bytes: Vec<u8>) -> Result<Ascii, NotAsciiError> {
         if bytes.iter().any(|&byte| !bytes.is_ascii()) {
@@ -11,6 +12,7 @@ impl Ascii {
         Ok(Ascii(bytes))
     }
 }
+
 #[derive(Debug, Eq, PartialEq)]
 pub struct NotAsciiError(pub Vec<u8>);
 impl From<Ascii> for String {
@@ -20,6 +22,7 @@ impl From<Ascii> for String {
         }
     }
 }
+
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
