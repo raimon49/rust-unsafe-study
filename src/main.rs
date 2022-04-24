@@ -21,6 +21,8 @@ pub struct NotAsciiError(pub Vec<u8>);
 impl From<Ascii> for String {
     fn from(ascii: Ascii) -> String {
         unsafe {
+            // unsafeだが安全で効率的な変換
+            // well-formedなASCIIテキストはwell-formedなUTF8テキストであるのは自明なため
             String::from_utf8_unchecked(ascii.0)
         }
     }
