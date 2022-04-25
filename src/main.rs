@@ -35,9 +35,12 @@ fn main() {
         *ptr.offset(3) = 0x7ffff72f484c;
     }
 
+    // ASCIIだけで構成されたバイトベクタ
     let bytes: Vec<u8> = b"ASCII and ye shall receive".to_vec();
+    // ヒープの確保もテキストのコピーも行われない呼び出し
     let ascii: Ascii = Ascii::from_bytes(bytes)
         .unwrap();
+    // unsafeで実装されておりゼロコストで変換できる
     let string = String::from(ascii);
     assert_eq!(string, "ASCII and ye shall receive");
 }
