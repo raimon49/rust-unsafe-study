@@ -13,6 +13,12 @@ impl Ascii {
 
         Ok(Ascii(bytes))
     }
+
+    // 引数をチェックしないコンストラクタ
+    // 呼び出し元は0x7f以下のバイトのみ引数に渡さないと未定義動作となるためunsafeキーワードでマーク
+    pub unsafe fn from_bytes_unchecked(bytes: Vec<u8>) -> Ascii {
+        Ascii(bytes)
+    }
 }
 
 #[derive(Debug, Eq, PartialEq)]
