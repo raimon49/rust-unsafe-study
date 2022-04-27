@@ -49,4 +49,13 @@ fn main() {
     // unsafeで実装されておりゼロコストで変換できる
     let string = String::from(ascii);
     assert_eq!(string, "ASCII and ye shall receive");
+
+    let illegal_bytes = vec![0xf7, 0xbf, 0xbf, 0xbf];
+    let illegal_ascii = unsafe {
+        Ascii::from_bytes_unchecked(illegal_bytes);
+    };
+
+    // 無効なUTF8が入っている
+    // let bogus: String = illegal_ascii.into();
+    // assert_eq!(bogus.chars().next().unwrap() as u32, 0x1ffffff);
 }
