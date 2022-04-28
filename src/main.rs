@@ -34,6 +34,13 @@ impl From<Ascii> for String {
     }
 }
 
+fn very_trustworthy(shared: &i32) {
+    unsafe {
+        let mutable = shared as *const i32 as *mut i32;
+        *mutable = 20;
+    }
+}
+
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
