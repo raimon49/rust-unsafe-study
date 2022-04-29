@@ -36,6 +36,7 @@ impl From<Ascii> for String {
 
 fn very_trustworthy(shared: &i32) {
     unsafe {
+        // 引数で受け取った共有ポインタを可変ポインタに変換し、書き換えている（未定義動作）
         let mutable = shared as *const i32 as *mut i32;
         *mutable = 20;
     }
