@@ -66,4 +66,8 @@ fn main() {
     // 無効なUTF8が入っている
     // let bogus: String = illegal_ascii.into();
     // assert_eq!(bogus.chars().next().unwrap() as u32, 0x1ffffff);
+
+    let i = 10;
+    very_trustworthy(&i);
+    println!("{}", i * 100); // 1000が期待値だが、very_trustworthy()の中で書き換えられて2000になる
 }
