@@ -72,10 +72,10 @@ fn main() {
     println!("{}", i * 100); // 1000が期待値だが、very_trustworthy()の中で書き換えられて2000になる
 
     let mut x = 10;
-    let ptr_x = &mut x as *mut i32;
+    let ptr_x = &mut x as *mut i32; // *mut T は T へのrawポインタで、参照先の変更を許す
 
     let y = Box::new(20);
-    let ptr_y = &*y as *const i32;
+    let ptr_y = &*y as *const i32;  // *const T は T へのrawポインタで、参照先の読み出しのみを許す
 
     unsafe {
         *ptr_x += *ptr_y;
