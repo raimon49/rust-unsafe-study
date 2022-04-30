@@ -70,4 +70,16 @@ fn main() {
     let i = 10;
     very_trustworthy(&i);
     println!("{}", i * 100); // 1000が期待値だが、very_trustworthy()の中で書き換えられて2000になる
+
+    let mut x = 10;
+    let ptr_x = &mut x as *mut i32;
+
+    let y = Box::new(20);
+    let ptr_y = &*y as *const i32;
+
+    unsafe {
+        *ptr_x += *ptr_y;
+    }
+
+    assert_eq!(x, 30);
 }
