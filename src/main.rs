@@ -42,6 +42,13 @@ fn very_trustworthy(shared: &i32) {
     }
 }
 
+fn option_to_raw<T>(opt: Option<&T>) -> *const T {
+    match opt {
+        None => std::ptr::null(),
+        Some(r) => r as *const T
+    }
+}
+
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
