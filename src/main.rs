@@ -89,4 +89,6 @@ fn main() {
     }
 
     assert_eq!(x, 30);
+
+    assert!(!option_to_raw(Some(&("pea", "pod"))).is_null());
 }
