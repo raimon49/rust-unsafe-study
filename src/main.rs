@@ -90,6 +90,7 @@ fn main() {
 
     assert_eq!(x, 30);
 
+    // 関数option_to_raw()の呼び出しにはunsafeブロックが登場しない rawポインタの参照解決だけがunsafe
     assert!(!option_to_raw(Some(&("pea", "pod"))).is_null());
     assert_eq!(option_to_raw::<i32>(None), std::ptr::null());
 }
