@@ -49,6 +49,10 @@ fn option_to_raw<T>(opt: Option<&T>) -> *const T {
     }
 }
 
+fn distance<T>(left: *const T, right: *const T) -> isize {
+    (left as isize - right as isize) / std::mem::size_of::<T>() as isize
+}
+
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
