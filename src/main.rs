@@ -97,4 +97,9 @@ fn main() {
     // 関数option_to_raw()の呼び出しにはunsafeブロックが登場しない rawポインタの参照解決だけがunsafe
     assert!(!option_to_raw(Some(&("pea", "pod"))).is_null());
     assert_eq!(option_to_raw::<i32>(None), std::ptr::null());
+
+    let trucks = vec!["garbage truck", "dump truck", "moonstruck"];
+    let first = &trucks[0];
+    let last = &trucks[2];
+    assert_eq!(distance(last, first), 2);
 }
