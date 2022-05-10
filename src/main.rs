@@ -102,4 +102,5 @@ fn main() {
     let first = &trucks[0];
     let last = &trucks[2];
     assert_eq!(distance(last, first), 2);
+    assert_eq!(distance(first, last), -2);
 }
