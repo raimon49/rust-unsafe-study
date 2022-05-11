@@ -50,6 +50,7 @@ fn option_to_raw<T>(opt: Option<&T>) -> *const T {
 }
 
 fn distance<T>(left: *const T, right: *const T) -> isize {
+    // 2つのrawポインタを仮引数で受け取り、両ポインタ間のメモリアドレスの距離を返す
     (left as isize - right as isize) / std::mem::size_of::<T>() as isize
 }
 
@@ -98,6 +99,7 @@ fn main() {
     assert!(!option_to_raw(Some(&("pea", "pod"))).is_null());
     assert_eq!(option_to_raw::<i32>(None), std::ptr::null());
 
+    // 先頭の要素と最後の要素のポインタ距離をrawポインタを渡して計算させる
     let trucks = vec!["garbage truck", "dump truck", "moonstruck"];
     let first = &trucks[0];
     let last = &trucks[2];
