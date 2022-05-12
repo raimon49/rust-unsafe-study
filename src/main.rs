@@ -105,4 +105,7 @@ fn main() {
     let last = &trucks[2];
     assert_eq!(distance(last, first), 2);
     assert_eq!(distance(first, last), -2);
+
+    // &vec![42_u8] as *const String; // casting `&std::vec::Vec<u8>` as `*const std::string::String` is invalid
+    &vec![42_u8] as *const Vec<u8> as *const String; // この変換は許される
 }
