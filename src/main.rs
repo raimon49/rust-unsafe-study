@@ -54,7 +54,25 @@ fn distance<T>(left: *const T, right: *const T) -> isize {
     (left as isize - right as isize) / std::mem::size_of::<T>() as isize
 }
 
-mod ref_with_flag {}
+mod ref_with_flag {
+    use std::marker::PhantomData;
+    use std::mem::align_of;
+
+    pub struct RefWithFlag<'a, T:'a> {
+        ptr_and_bit: usize,
+        behaves_like: PhantomData<&'a T>
+    }
+
+    impl<'a, T:'a> RefWithFlag<'a, T> {
+        pub fn new(ptr: &'a T, flag: bool) -> RefWithFlag<T> {
+            assert!(align_of:: <T>() % 2 == 0);
+            RefWithFlag {
+                ptr_and_bit: ptr as *const T as usize | flag as usize,
+                behaves_like: PhantomData
+            }
+        }
+    }
+}
 
 fn main() {
     let mut a: usize = 0;
