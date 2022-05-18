@@ -78,6 +78,10 @@ mod ref_with_flag {
                 &*ptr
             }
         }
+
+        pub fn get_flag(&self) -> bool {
+            self.ptr_and_bit & 1 != 0
+        }
     }
 }
 
