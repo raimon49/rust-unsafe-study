@@ -141,4 +141,8 @@ fn main() {
 
     // &vec![42_u8] as *const String; // casting `&std::vec::Vec<u8>` as `*const std::string::String` is invalid
     &vec![42_u8] as *const Vec<u8> as *const String; // この変換は許される
+
+    let vec = vec![10, 20, 30];
+    let flagged = ref_with_flag::RefWithFlag::new(&vec, true);
+    assert_eq!(flagged.get_ref()[1], 20);
 }
