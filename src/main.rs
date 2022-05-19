@@ -58,6 +58,8 @@ mod ref_with_flag {
     use std::marker::PhantomData;
     use std::mem::align_of;
 
+    // 古典的なbit操作をRustで安全にラップした型
+    // 型Tは少なくとも2バイト単位でアライメントされているものでなければならない
     pub struct RefWithFlag<'a, T:'a> {
         ptr_and_bit: usize,
         behaves_like: PhantomData<&'a T>
