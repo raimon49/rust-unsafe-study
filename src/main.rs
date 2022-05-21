@@ -7,7 +7,7 @@ impl Ascii {
     // 引数 bytes 内のASCIIテキストから型 Ascii を作る
     // ASCIIでない文字列が入っていたらNotAsciiErrorを返す
     pub fn from_bytes(bytes: Vec<u8>) -> Result<Ascii, NotAsciiError> {
-        if bytes.iter().any(|&byte| !bytes.is_ascii()) {
+        if bytes.iter().any(|&_byte| !bytes.is_ascii()) {
             return Err(NotAsciiError(bytes));
         }
 
@@ -104,12 +104,12 @@ fn main() {
     assert_eq!(string, "ASCII and ye shall receive");
 
     let illegal_bytes = vec![0xf7, 0xbf, 0xbf, 0xbf];
-    let illegal_ascii = unsafe {
+    let _illegal_ascii = unsafe {
         Ascii::from_bytes_unchecked(illegal_bytes);
     };
 
     // 無効なUTF8が入っている
-    // let bogus: String = illegal_ascii.into();
+    // let bogus: String = _illegal_ascii.into();
     // assert_eq!(bogus.chars().next().unwrap() as u32, 0x1ffffff);
 
     let i = 10;
