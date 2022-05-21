@@ -145,4 +145,5 @@ fn main() {
     let vec = vec![10, 20, 30];
     let flagged = ref_with_flag::RefWithFlag::new(&vec, true);
     assert_eq!(flagged.get_ref()[1], 20);
+    assert_eq!(flagged.get_flag(), true);
 }
