@@ -67,8 +67,9 @@ mod ref_with_flag {
 
     impl<'a, T:'a> RefWithFlag<'a, T> {
         pub fn new(ptr: &'a T, flag: bool) -> RefWithFlag<T> {
-            assert!(align_of:: <T>() % 2 == 0);
+            assert!(align_of:: <T>() % 2 == 0); // 最下位ビットがゼロであるか検証してからrawポインタに変換
             RefWithFlag {
+                // 参照->rawポインタ->usizeに変換（usizeはどんな計算機でもポインタ型を保持するのに十分なサイズ）
                 ptr_and_bit: ptr as *const T as usize | flag as usize,
                 behaves_like: PhantomData
             }
@@ -82,6 +83,7 @@ mod ref_with_flag {
         }
 
         pub fn get_flag(&self) -> bool {
+            // 最下位ビットをマスクしてゼロかを返す
             self.ptr_and_bit & 1 != 0
         }
     }
