@@ -71,6 +71,7 @@ mod ref_with_flag {
             RefWithFlag {
                 // 参照->rawポインタ->usizeに変換（usizeはどんな計算機でもポインタ型を保持するのに十分なサイズ）
                 ptr_and_bit: ptr as *const T as usize | flag as usize,
+                // メモリを消費しないゼロサイズの型（生存期間をどう扱うかRustコンパイラに教えるために必要なフィールドで、これが無いとコンパイルできない）
                 behaves_like: PhantomData
             }
         }
