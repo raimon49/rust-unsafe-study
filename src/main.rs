@@ -149,4 +149,6 @@ fn main() {
     let flagged = ref_with_flag::RefWithFlag::new(&vec, true);
     assert_eq!(flagged.get_ref()[1], 20);
     assert_eq!(flagged.get_flag(), true);
+
+    assert_eq!(std::mem::size_of::<i64>(), 8);
 }
