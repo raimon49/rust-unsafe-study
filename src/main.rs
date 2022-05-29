@@ -150,6 +150,7 @@ fn main() {
     assert_eq!(flagged.get_ref()[1], 20);
     assert_eq!(flagged.get_flag(), true);
 
+    // 計算機プロセッサによって型のサイズとアライメントが決定される
     assert_eq!(std::mem::size_of::<i64>(), 8);
     assert_eq!(std::mem::align_of::<(i32, i32)>(), 4);
 }
