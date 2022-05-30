@@ -153,4 +153,7 @@ fn main() {
     // 計算機プロセッサによって型のサイズとアライメントが決定される
     assert_eq!(std::mem::size_of::<i64>(), 8);
     assert_eq!(std::mem::align_of::<(i32, i32)>(), 4);
+
+    let slice: &[i32] = &[1, 3, 9, 27, 81];
+    assert_eq!(std::mem::size_of_val(slice), 20);
 }
