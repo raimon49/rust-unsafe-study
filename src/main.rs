@@ -156,4 +156,6 @@ fn main() {
 
     let slice: &[i32] = &[1, 3, 9, 27, 81];
     assert_eq!(std::mem::size_of_val(slice), 20);
+    let text: &str = "alligator";
+    assert_eq!(std::mem::size_of_val(text), 9);
 }
