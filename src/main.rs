@@ -160,8 +160,8 @@ fn main() {
     assert_eq!(std::mem::size_of_val(text), 9);
 
     use std::fmt::Display;
-    let unremarkable: &Display = &193_u8;
-    let remarkable: &Display = &0.0072973525664;
+    let unremarkable: &dyn Display = &193_u8;
+    let remarkable: &dyn Display = &0.0072973525664;
     assert_eq!(std::mem::size_of_val(unremarkable), 1);
     assert_eq!(std::mem::align_of_val(remarkable), 8);
 }
