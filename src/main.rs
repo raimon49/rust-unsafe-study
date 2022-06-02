@@ -150,7 +150,7 @@ fn main() {
     assert_eq!(flagged.get_ref()[1], 20);
     assert_eq!(flagged.get_flag(), true);
 
-    // 計算機プロセッサによって型のサイズとアライメントが決定される
+    // 計算機プロセッサによって型のサイズとアラインメントが決定される
     assert_eq!(std::mem::size_of::<i64>(), 8);
     assert_eq!(std::mem::align_of::<(i32, i32)>(), 4);
 
@@ -159,6 +159,7 @@ fn main() {
     let text: &str = "alligator";
     assert_eq!(std::mem::size_of_val(text), 9);
 
+    // トレイトオブジェクトそのものではなく、トレイトオブジェクトが指す値のサイズ・アラインメントを返す
     use std::fmt::Display;
     let unremarkable: &dyn Display = &193_u8;
     let remarkable: &dyn Display = &0.0072973525664;
