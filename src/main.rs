@@ -129,7 +129,7 @@ fn main() {
         *ptr_x += *ptr_y;
     }
 
-    assert_eq!(x, 30);
+    assert_eq!(x, 30); // *mut i32型のptr_xを通してポインタの指す値が更新されている
 
     // 関数option_to_raw()の呼び出しにはunsafeブロックが登場しない rawポインタの参照解決だけがunsafe
     assert!(!option_to_raw(Some(&("pea", "pod"))).is_null());
