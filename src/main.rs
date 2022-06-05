@@ -147,8 +147,8 @@ fn main() {
 
     let vec = vec![10, 20, 30];
     let flagged = ref_with_flag::RefWithFlag::new(&vec, true);
-    assert_eq!(flagged.get_ref()[1], 20);
-    assert_eq!(flagged.get_flag(), true);
+    assert_eq!(flagged.get_ref()[1], 20); // ラップしたvec参照の要素を取り出す
+    assert_eq!(flagged.get_flag(), true); // ラップしたvecのメモリに保存した値boolを取り出す
 
     // 計算機プロセッサによって型のサイズとアラインメントが決定される
     assert_eq!(std::mem::size_of::<i64>(), 8);
