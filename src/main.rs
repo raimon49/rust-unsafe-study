@@ -165,4 +165,9 @@ fn main() {
     let remarkable: &dyn Display = &0.0072973525664;
     assert_eq!(std::mem::size_of_val(unremarkable), 1);
     assert_eq!(std::mem::align_of_val(remarkable), 8);
+    {
+        let _pot = "pasta".to_string();
+        let _plate;
+        _plate = _pot; // 変数potのメモリアドレスは未初期化状態になる
+    }
 }
