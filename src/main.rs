@@ -170,4 +170,11 @@ fn main() {
         let _plate;
         _plate = _pot; // 変数potのメモリアドレスは未初期化状態になる
     }
+    {
+        let mut noodles = vec!["udon".to_string()];
+        let soba = "soba".to_string();
+        let last;
+        noodles.push(soba);
+        last = noodles.pop();
+    }
 }
