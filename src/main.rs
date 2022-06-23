@@ -173,7 +173,7 @@ fn main() {
     {
         let mut noodles = vec!["udon".to_string()];
         let soba = "soba".to_string();
-        let last;
+        let last; // 最終的に変数lastだけが所有権を持つ
         noodles.push(soba); // 変数sobaは未初期化状態になる
         last = noodles.pop().unwrap(); // noodles[1]は未初期化状態になる
     }
