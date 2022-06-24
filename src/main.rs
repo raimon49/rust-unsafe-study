@@ -166,15 +166,15 @@ fn main() {
     assert_eq!(std::mem::size_of_val(unremarkable), 1);
     assert_eq!(std::mem::align_of_val(remarkable), 8);
     {
-        let _pot = "pasta".to_string();
+        let pot = "pasta".to_string();
         let _plate;
-        _plate = _pot; // 変数potのメモリアドレスは未初期化状態になる
+        _plate = pot; // 変数potのメモリアドレスは未初期化状態になる
     }
     {
         let mut noodles = vec!["udon".to_string()];
         let soba = "soba".to_string();
-        let last; // 最終的に変数lastだけが所有権を持つ
+        let _last; // 最終的に変数lastだけが所有権を持つ
         noodles.push(soba); // 変数sobaは未初期化状態になる
-        last = noodles.pop().unwrap(); // noodles[1]は未初期化状態になる
+        _last = noodles.pop().unwrap(); // noodles[1]は未初期化状態になる
     }
 }
