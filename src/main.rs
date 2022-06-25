@@ -171,10 +171,10 @@ fn main() {
         _plate = pot; // 変数potのメモリアドレスは未初期化状態になる
     }
     {
-        let mut noodles = vec!["udon".to_string()];
+        let mut noodles = vec!["udon".to_string()]; // noodles[0]のみメモリ確保された状態
         let soba = "soba".to_string();
         let _last; // 最終的に変数lastだけが所有権を持つ
-        noodles.push(soba); // 変数sobaは未初期化状態になる
+        noodles.push(soba); // noodles[1]にメモリ確保され、変数sobaは未初期化状態になる
         _last = noodles.pop().unwrap(); // noodles[1]は未初期化状態になる
     }
 }
