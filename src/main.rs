@@ -99,6 +99,15 @@ mod gap {
 
         gap: Range<usize>
     }
+
+    impl<T> GapBuffer<T> {
+        pub fn new() -> GapBuffer<T> {
+            GapBuffer {
+                storage: Vec::new(),
+                gap: 0..0
+            }
+        }
+    }
 }
 
 fn main() {
