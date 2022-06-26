@@ -90,6 +90,17 @@ mod ref_with_flag {
     }
 }
 
+mod gap {
+    use std;
+    use std::ops::Range;
+
+    pub struct GapBuffer<T> {
+        storage: Vec<T>,
+
+        gap: Range<usize>
+    }
+}
+
 fn main() {
     let mut a: usize = 0;
     let ptr = &mut a as *mut usize;
