@@ -107,6 +107,10 @@ mod gap {
                 gap: 0..0
             }
         }
+
+        pub fn capacity(&self) -> usize {
+            self.storage.capacity()
+        }
     }
 }
 
