@@ -119,6 +119,10 @@ mod gap {
         pub fn position(&self) -> usize {
             self.gap.start
         }
+
+        unsafe fn space(&self, index: usize) -> *const T {
+            self.storage.as_ptr().offset(index as isize)
+        }
     }
 }
 
