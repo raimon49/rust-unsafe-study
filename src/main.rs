@@ -123,6 +123,10 @@ mod gap {
         unsafe fn space(&self, index: usize) -> *const T {
             self.storage.as_ptr().offset(index as isize)
         }
+
+        unsafe fn space_mut(&mut self, index: usize) -> *mut T {
+            self.storage.as_mut_ptr().offset(index as isize)
+        }
     }
 }
 
