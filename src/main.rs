@@ -127,6 +127,14 @@ mod gap {
         unsafe fn space_mut(&mut self, index: usize) -> *mut T {
             self.storage.as_mut_ptr().offset(index as isize)
         }
+
+        fn index_to_raw(&self, index: usize) -> usize {
+            if index < self.gap.start {
+                index
+            } else {
+                index + self.gap.len()
+            }
+        }
     }
 }
 
