@@ -135,6 +135,17 @@ mod gap {
                 index + self.gap.len()
             }
         }
+
+        pub fn get(&self, index: usize) -> Option<&T> {
+            let raw = self.index_to_raw(index);
+            if raw < self.capacity() {
+                unsafe {
+                    Some(&*self.space(raw))
+                }
+            } else {
+                None
+            }
+        }
     }
 }
 
