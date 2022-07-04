@@ -146,6 +146,12 @@ mod gap {
                 None
             }
         }
+
+        pub fn set_position(&mut self, pos: usize) {
+            if pos > self.len() {
+                panic!("index {} out of range for GapBuffer", pos);
+            }
+        }
     }
 }
 
