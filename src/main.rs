@@ -151,6 +151,16 @@ mod gap {
             if pos > self.len() {
                 panic!("index {} out of range for GapBuffer", pos);
             }
+
+            unsafe {
+                let gap = self.gap.clone();
+                if pos > gap.start {
+                    let distance = pos - gap.start;
+                    std::ptr::copy(self.space(gap.end),
+                        self.space_mut(gap.start),
+                        distance);
+                }
+            }
         }
     }
 }
