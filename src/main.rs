@@ -157,8 +157,8 @@ mod gap {
                 if pos > gap.start {
                     let distance = pos - gap.start;
                     std::ptr::copy(self.space(gap.end),
-                        self.space_mut(gap.start),
-                        distance);
+                                   self.space_mut(gap.start),
+                                   distance);
                 } else if pos < gap.start {
                     let distance = gap.start - pos;
                     std::ptr::copy(self.space(pos),
