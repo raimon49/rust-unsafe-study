@@ -165,6 +165,8 @@ mod gap {
                                    self.space_mut(gap.end - distance),
                                    distance);
                 }
+
+            self.gap = pos .. pos + gap.len();
             }
         }
     }
