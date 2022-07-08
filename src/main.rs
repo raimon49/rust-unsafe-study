@@ -169,6 +169,18 @@ mod gap {
             self.gap = pos .. pos + gap.len();
             }
         }
+
+        pub fn remove(&mut self) -> Option<T> {
+            if self.gap.end == self.capacity() {
+                return None;
+            }
+
+            let element = unsafe {
+                std::ptr::read(self.space(self.gap.end))
+            };
+            self.gap.end += 1;
+            Some(element)
+        }
     }
 }
 
