@@ -181,6 +181,10 @@ mod gap {
             self.gap.end += 1;
             Some(element)
         }
+
+        fn enlarge_gap(&mut self) {
+            let mut new_capacity = self.capacity() * 2;
+        }
     }
 }
 
