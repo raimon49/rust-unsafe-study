@@ -184,6 +184,18 @@ mod gap {
 
         fn enlarge_gap(&mut self) {
             let mut new_capacity = self.capacity() * 2;
+            if new_capacity == 0 {
+                new_capacity = 4;
+            }
+
+            let mut new = Vec::with_capacity(new_capacity);
+            let after_gap = self.capacity() - self.gap.end;
+            let new_gap = self.gap.start .. new.capacity() - after_gap;
+            unsafe {
+                std::ptr::copy_nonoverlapping(self.space(0),
+                                           new.as_mut_ptr(),
+                                           self.gap.start);
+            }
         }
     }
 }
