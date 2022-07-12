@@ -195,6 +195,10 @@ mod gap {
                 std::ptr::copy_nonoverlapping(self.space(0),
                                            new.as_mut_ptr(),
                                            self.gap.start);
+                let new_gap_end = new.as_mut_ptr().offset(new_gap.end as isize);
+                std::ptr::copy_nonoverlapping(self.space(self.gap.end),
+                                           new_gap_end,
+                                           after_gap);
             }
         }
     }
