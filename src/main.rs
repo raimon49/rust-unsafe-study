@@ -200,6 +200,9 @@ mod gap {
                                            new_gap_end,
                                            after_gap);
             }
+
+            self.storage = new;
+            self.gap = new_gap;
         }
     }
 }
