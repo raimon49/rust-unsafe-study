@@ -186,6 +186,13 @@ mod gap {
             if self.gap.len() == 0 {
                 self.enlarge_gap();
             }
+
+            unsafe {
+                let index = self.gap.start;
+                std::ptr::write(self.space_mut(index), elt);
+            }
+
+            self.gap.start += 1;
         }
 
         fn enlarge_gap(&mut self) {
