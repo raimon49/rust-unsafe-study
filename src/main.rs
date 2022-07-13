@@ -182,6 +182,12 @@ mod gap {
             Some(element)
         }
 
+        pub fn insert(&mut self, elt: T) {
+            if self.gap.len() == 0 {
+                self.enlarge_gap();
+            }
+        }
+
         fn enlarge_gap(&mut self) {
             let mut new_capacity = self.capacity() * 2;
             if new_capacity == 0 {
