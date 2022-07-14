@@ -195,6 +195,14 @@ mod gap {
             self.gap.start += 1;
         }
 
+        pub fn insert_iter<I>(&mut self, iterable: I)
+            where I: IntoIterator<Item=T>
+        {
+            for item in iterable {
+                self.insert(item);
+            }
+        }
+
         fn enlarge_gap(&mut self) {
             let mut new_capacity = self.capacity() * 2;
             if new_capacity == 0 {
