@@ -329,4 +329,11 @@ fn main() {
         noodles.push(soba); // noodles[1]にメモリ確保され、変数sobaは未初期化状態になる
         _last = noodles.pop().unwrap(); // noodles[1]は未初期化状態になる
     }
+
+    {
+        use gap::GapBuffer;
+        // type GapBufferを使ったコード
+        let mut buf = GapBuffer::new();
+        buf.insert_iter("Lord of the Rings".chars());
+    }
 }
