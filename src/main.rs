@@ -338,6 +338,10 @@ fn main() {
         buf.set_position(12);
         buf.insert_iter("Onion ".chars());
 
-        let end = buf.remove();
+        assert_eq!('R', buf.remove().unwrap());
+        assert_eq!('i', buf.remove().unwrap());
+        assert_eq!('n', buf.remove().unwrap());
+        assert_eq!('g', buf.remove().unwrap());
+        assert_eq!('s', buf.remove().unwrap());
     }
 }
