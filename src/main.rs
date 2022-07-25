@@ -343,5 +343,8 @@ fn main() {
         assert_eq!('n', buf.remove().unwrap());
         assert_eq!('g', buf.remove().unwrap());
         assert_eq!('s', buf.remove().unwrap());
+
+        let n = buf.get(buf.position());
+        assert_eq!(None, n);
     }
 }
