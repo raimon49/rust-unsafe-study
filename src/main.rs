@@ -346,5 +346,7 @@ fn main() {
 
         let n = buf.get(buf.position());
         assert_eq!(None, n);
+        let m = buf.get(buf.len());
+        assert_eq!(None, m);
     }
 }
