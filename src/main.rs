@@ -94,9 +94,13 @@ mod gap {
     use std;
     use std::ops::Range;
 
+    // charの値を予備領域と一緒に保持する型
     pub struct GapBuffer<T> {
+        // 格納場所
+        // 必要とする容量を持つが、長さは常にゼロとなる
         storage: Vec<T>,
 
+        // storage内で初期化されていない範囲
         gap: Range<usize>
     }
 
