@@ -117,6 +117,7 @@ mod gap {
             self.storage.capacity()
         }
 
+        // 現在このGapBufferが保持している要素数を返す
         pub fn len(&self) -> usize {
             self.capacity() - self.gap.len()
         }
