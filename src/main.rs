@@ -112,6 +112,7 @@ mod gap {
             }
         }
 
+        // GapBufferが再確保せず保持できる要素数を返す
         pub fn capacity(&self) -> usize {
             self.storage.capacity()
         }
