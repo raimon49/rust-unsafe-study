@@ -122,6 +122,7 @@ mod gap {
             self.capacity() - self.gap.len()
         }
 
+        // 現在の挿入点を返す
         pub fn position(&self) -> usize {
             self.gap.start
         }
