@@ -127,6 +127,7 @@ mod gap {
             self.gap.start
         }
 
+        // ギャップを気にせず内部ストレージindex番目要素へのポインタを返す
         unsafe fn space(&self, index: usize) -> *const T {
             self.storage.as_ptr().offset(index as isize)
         }
