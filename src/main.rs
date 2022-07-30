@@ -132,6 +132,7 @@ mod gap {
             self.storage.as_ptr().offset(index as isize)
         }
 
+        // ギャップを気にせず内部ストレージindex番目要素への可変ポインタを返す
         unsafe fn space_mut(&mut self, index: usize) -> *mut T {
             self.storage.as_mut_ptr().offset(index as isize)
         }
