@@ -137,6 +137,7 @@ mod gap {
             self.storage.as_mut_ptr().offset(index as isize)
         }
 
+        // ギャップを計算に入れて内部ストレージのindex番目要素へのポインタを返す
         fn index_to_raw(&self, index: usize) -> usize {
             if index < self.gap.start {
                 index
