@@ -146,6 +146,8 @@ mod gap {
             }
         }
 
+        // index番目の要素への参照を返す
+        // indexが範囲外ならNoneを返す
         pub fn get(&self, index: usize) -> Option<&T> {
             let raw = self.index_to_raw(index);
             if raw < self.capacity() {
