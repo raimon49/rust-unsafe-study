@@ -150,6 +150,8 @@ mod gap {
         // indexが範囲外ならNoneを返す
         pub fn get(&self, index: usize) -> Option<&T> {
             let raw = self.index_to_raw(index);
+            // rawをself.capacity()に対してチェックした
+            // index_to_rawはギャップをスキップするので安全
             if raw < self.capacity() {
                 unsafe {
                     Some(&*self.space(raw))
