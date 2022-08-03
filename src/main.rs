@@ -161,6 +161,8 @@ mod gap {
             }
         }
 
+        // 現在の挿入点を引数posに動かす
+        // もしposが範囲外であればpanicを起こす
         pub fn set_position(&mut self, pos: usize) {
             if pos > self.len() {
                 panic!("index {} out of range for GapBuffer", pos);
