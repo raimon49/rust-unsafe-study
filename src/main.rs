@@ -169,10 +169,10 @@ mod gap {
             }
 
             unsafe {
-                // posはギャップの後ろにある
-                // ギャップの後ろの要素をギャップの前に動かして、ギャップを右にずらす
                 let gap = self.gap.clone();
                 if pos > gap.start {
+                    // posはギャップの後ろにある
+                    // ギャップの後ろの要素をギャップの前に動かして、ギャップを右にずらす
                     let distance = pos - gap.start;
                     std::ptr::copy(self.space(gap.end),
                                    self.space_mut(gap.start),
