@@ -178,6 +178,8 @@ mod gap {
                                    self.space_mut(gap.start),
                                    distance);
                 } else if pos < gap.start {
+                    // posはギャップの前にある
+                    // ギャップの前の要素をギャップの後ろに動かして、ギャップを左にずらす
                     let distance = gap.start - pos;
                     std::ptr::copy(self.space(pos),
                                    self.space_mut(gap.end - distance),
