@@ -202,6 +202,7 @@ mod gap {
             Some(element)
         }
 
+        // 引数eltを現在の挿入点に挿入し、挿入点を1つ後ろにずらす
         pub fn insert(&mut self, elt: T) {
             if self.gap.len() == 0 {
                 self.enlarge_gap();
