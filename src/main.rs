@@ -216,6 +216,7 @@ mod gap {
             self.gap.start += 1;
         }
 
+        // iterableが生成する要素を現在の挿入位置に挿入し、挿入点をその後ろにずらす
         pub fn insert_iter<I>(&mut self, iterable: I)
             where I: IntoIterator<Item=T>
         {
