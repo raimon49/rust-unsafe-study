@@ -229,6 +229,7 @@ mod gap {
         fn enlarge_gap(&mut self) {
             let mut new_capacity = self.capacity() * 2;
             if new_capacity == 0 {
+                // 空だった時は適当な初期容量を設定
                 new_capacity = 4;
             }
 
