@@ -225,6 +225,7 @@ mod gap {
             }
         }
 
+        // self.storageの容量を倍にする
         fn enlarge_gap(&mut self) {
             let mut new_capacity = self.capacity() * 2;
             if new_capacity == 0 {
