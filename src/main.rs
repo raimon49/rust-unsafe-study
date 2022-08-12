@@ -233,6 +233,8 @@ mod gap {
                 new_capacity = 4;
             }
 
+            // Vecをリサイズした時に「使っていない」領域に何が起きるかわからない
+            // そこで新しいVectorを作って中の要素を移動する
             let mut new = Vec::with_capacity(new_capacity);
             let after_gap = self.capacity() - self.gap.end;
             let new_gap = self.gap.start .. new.capacity() - after_gap;
