@@ -239,9 +239,11 @@ mod gap {
             let after_gap = self.capacity() - self.gap.end;
             let new_gap = self.gap.start .. new.capacity() - after_gap;
             unsafe {
+                // ギャップの前の要素を移動
                 std::ptr::copy_nonoverlapping(self.space(0),
                                            new.as_mut_ptr(),
                                            self.gap.start);
+                // ギャップの後ろの要素を移動
                 let new_gap_end = new.as_mut_ptr().offset(new_gap.end as isize);
                 std::ptr::copy_nonoverlapping(self.space(self.gap.end),
                                            new_gap_end,
