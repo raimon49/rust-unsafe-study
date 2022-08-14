@@ -250,6 +250,8 @@ mod gap {
                                            after_gap);
             }
 
+            // これで古いVecが解放されるが要素はドロップされない
+            // 古いVecの長さはゼロだったので
             self.storage = new;
             self.gap = new_gap;
         }
