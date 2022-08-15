@@ -259,6 +259,7 @@ mod gap {
 
     impl<T> Drop for GapBuffer<T> {
         fn drop(&mut self) {
+            // GapBufferがドロップされた時は全ての要素がドロップされることを保証しなければならない
             unsafe {
                 for i in 0 .. self.gap.start {
                     std::ptr::drop_in_place(self.space_mut(i));
