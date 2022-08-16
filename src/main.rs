@@ -195,6 +195,7 @@ mod gap {
                 return None;
             }
 
+            // ギャップ直後の値をバッファから取り出す
             let element = unsafe {
                 std::ptr::read(self.space(self.gap.end))
             };
